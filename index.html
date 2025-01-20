@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Las mejores hamburguesas artesanales en Colombia - Hamburguesas el Gordo Mc Cain"
+    />
+    <meta
+      name="keywords"
+      content="hamburguesas, comida rápida, hamburguesas gourmet, Colombia"
+    />
+    <title>Hamburguesas el Gordo Mc Cain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>Hamburguesas el Gordo Mc Cain</h1>
+      <p>Las mejores hamburguesas artesanales de Colombia</p>
+      <button class="cta-button" onclick="scrollToMenu()">Ver Menú</button>
+    </section>
+
+    <!-- Sección de Hamburguesas -->
+    <section class="menu-section" id="menu">
+      <h2>Nuestras Hamburguesas</h2>
+      <div class="burger-grid">
+        <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+      </div>
+    </section>
+
+    <!-- Modales para las hamburguesas -->
+    <div id="burgerModal" class="modal">
+      <div class="modal-content">
+        <!-- Contenido del modal se generará dinámicamente -->
+      </div>
+    </div>
+
+    <!-- Sección de Testimonios -->
+    <section class="testimonials">
+      <h2>Experiencias de Nuestros Clientes</h2>
+      <div class="testimonial-grid">
+        <!-- Los testimonios se generarán dinámicamente con JavaScript -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="contact-info">
+          <h3>Hamburguesas el Gordo Mc Cain</h3>
+          <p>Calle 64j bis 85j</p>
+          <p>Teléfono: +57 3232484620</p>
+          <div class="footer-links">
+            <a href="politicaDePrivacidad.html" class="footer-link"
+              >Política de Privacidad</a
+            >
+          </div>
+        </div>
+        <div class="map">
+          <!-- Aquí iría el mapa embebido -->
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Datos de las hamburguesas
+      // Datos de las hamburguesas
+      const burgers = [
+        {
+          name: 'La Clásica Gordo',
+          price: 25000,
+          image:
+            'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format',
+          ingredients: [
+            'Carne 180g',
+            'Queso cheddar',
+            'Lechuga',
+            'Tomate',
+            'Cebolla',
+            'Salsa especial',
+          ],
+          description:
+            'Nuestra hamburguesa insignia con la perfecta combinación de sabores tradicionales.',
+        },
+        {
+          name: 'La Mexicana Picante',
+          price: 28000,
+          image:
+            'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?w=500&auto=format',
+          ingredients: [
+            'Carne 180g',
+            'Guacamole',
+            'Jalapeños',
+            'Queso manchego',
+            'Pico de gallo',
+            'Salsa chipotle',
+          ],
+          description: 'Un festín picante con auténticos sabores mexicanos.',
+        },
+        {
+          name: 'La Crispy BBQ',
+          price: 30000,
+          image:
+            'https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?w=500&auto=format',
+          ingredients: [
+            'Carne 180g',
+            'Tocino crujiente',
+            'Aros de cebolla',
+            'Queso americano',
+            'Salsa BBQ',
+            'Lechuga',
+          ],
+          description:
+            'Perfecta combinación de texturas crujientes con nuestra salsa BBQ casera.',
+        },
+        {
+          name: 'La Gourmet Trufa',
+          price: 35000,
+          image:
+            'https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=500&auto=format',
+          ingredients: [
+            'Carne 180g',
+            'Queso brie',
+            'Champiñones',
+            'Rúcula',
+            'Aceite de trufa',
+            'Mayonesa de ajo',
+          ],
+          description:
+            'Una experiencia gourmet con ingredientes premium y el toque especial de la trufa.',
+        },
+        {
+          name: 'La Vegetariana Deluxe',
+          price: 27000,
+          image:
+            'https://images.unsplash.com/photo-1550547660-d9450f859349?w=500&auto=format',
+          ingredients: [
+            'Hamburguesa de lentejas',
+            'Queso vegano',
+            'Aguacate',
+            'Tomate',
+            'Brotes',
+            'Salsa de yogur',
+          ],
+          description: 'Opción vegetariana llena de sabor y textura.',
+        },
+      ];
+      // Datos de testimonios
+      // Datos de testimonios
+      const testimonials = [
+        {
+          name: 'Carlos Rodríguez',
+          image:
+            'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&auto=format',
+          rating: 5,
+          comment:
+            '¡Las mejores hamburguesas que he probado! La atención es excepcional.',
+          date: '15/01/2025',
+        },
+        {
+          name: 'Ana María López',
+          image:
+            'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&auto=format',
+          rating: 5,
+          comment:
+            'La Gourmet Trufa es una experiencia culinaria única. ¡Volveré por más!',
+          date: '10/01/2025',
+        },
+        {
+          name: 'Juan Pablo Martínez',
+          image:
+            'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&auto=format',
+          rating: 5,
+          comment:
+            'Excelente relación calidad-precio. Las salsas son increíbles.',
+          date: '05/01/2025',
+        },
+        {
+          name: 'María Fernanda Castro',
+          image:
+            'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&auto=format',
+          rating: 5,
+          comment:
+            'La Mexicana Picante tiene el punto exacto de picante. ¡Deliciosa!',
+          date: '01/01/2025',
+        },
+        {
+          name: 'Diego Sánchez',
+          image:
+            'https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=200&auto=format',
+          rating: 5,
+          comment:
+            'Local acogedor y hamburguesas espectaculares. Mi lugar favorito.',
+          date: '28/12/2024',
+        },
+      ];
+
+      function scrollToMenu() {
+        const menuSection = document.getElementById('menu');
+        menuSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      // Función para generar las tarjetas de hamburguesas
+      function generateBurgerCards() {
+        const burgerGrid = document.querySelector('.burger-grid');
+        burgers.forEach((burger, index) => {
+          const card = document.createElement('div');
+          card.className = 'burger-card';
+          card.innerHTML = `
+                    <img src="${burger.image}" alt="${burger.name}">
+                    <div class="card-content">
+                        <h3>${burger.name}</h3>
+                        <p class="price">$${burger.price.toLocaleString()}</p>
+                        <button onclick="openModal(${index})">Ver más</button>
+                    </div>
+                `;
+          burgerGrid.appendChild(card);
+        });
+      }
+
+      // Función para generar los testimonios
+      function generateTestimonials() {
+        const testimonialGrid = document.querySelector('.testimonial-grid');
+        testimonials.forEach((testimonial) => {
+          const card = document.createElement('div');
+          card.className = 'testimonial-card';
+          card.innerHTML = `
+                    <div class="rating">
+                        ${'★'.repeat(testimonial.rating)}${'☆'.repeat(
+            5 - testimonial.rating
+          )}
+                    </div>
+                    <p>${testimonial.comment}</p>
+                    <div class="testimonial-author">
+                        <img src="${testimonial.image}" alt="${
+            testimonial.name
+          }">
+                        <div>
+                            <h4>${testimonial.name}</h4>
+                            <p>${testimonial.date}</p>
+                        </div>
+                    </div>
+                `;
+          testimonialGrid.appendChild(card);
+        });
+      }
+
+      // Función para abrir el modal
+      function openModal(index) {
+        const modal = document.getElementById('burgerModal');
+        const burger = burgers[index];
+
+        modal.querySelector('.modal-content').innerHTML = `
+                <span class="close" onclick="closeModal()">&times;</span>
+                <img src="${burger.image}" alt="${burger.name}">
+                <h2>${burger.name}</h2>
+                <p class="price">$${burger.price.toLocaleString()}</p>
+                <p>${burger.description}</p>
+                <h3>Ingredientes:</h3>
+                <ul>
+                    ${burger.ingredients
+                      .map((ing) => `<li>${ing}</li>`)
+                      .join('')}
+                </ul>
+            `;
+
+        modal.style.display = 'block';
+      }
+
+      // Función para cerrar el modal
+      function closeModal() {
+        document.getElementById('burgerModal').style.display = 'none';
+      }
+
+      // Inicialización
+      document.addEventListener('DOMContentLoaded', () => {
+        generateBurgerCards();
+        generateTestimonials();
+      });
+
+      // Cerrar modal con la tecla Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
